@@ -1,0 +1,12 @@
+torch
+torchvision
+torchaudio
+datasets
+numpy
+matplotlib
+pandas
+scikit-learn
+scipy
+tqdm
+nltk
+gdown

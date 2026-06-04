@@ -1,0 +1,84 @@
+============================================================
+SENTIMENT ANALYSIS: RNN vs GRU vs LSTM Comparison
+============================================================
+
+Loading dataset and preparing loaders...
+Using device: mps
+Loading GloVe embeddings from data/glove.6B.100d.txt...
+Successfully loaded 9991/10000 words from GloVe.
+
+====================
+Training RNN Model
+====================
+Epoch [1/5] Loss: 0.6640 Acc: 60.47% Val Loss: 0.8185 Val Acc: 53.92%
+Epoch [2/5] Loss: 0.5991 Acc: 69.47% Val Loss: 0.5679 Val Acc: 73.32%
+Epoch [3/5] Loss: 0.5503 Acc: 73.93% Val Loss: 0.5526 Val Acc: 75.04%
+Epoch [4/5] Loss: 0.5177 Acc: 75.87% Val Loss: 0.4953 Val Acc: 78.88%
+Epoch [5/5] Loss: 0.4786 Acc: 79.01% Val Loss: 0.5195 Val Acc: 77.12%
+Finished RNN in 148.90s
+Best Val Accuracy: 78.88%
+Test Loss: 0.4992 Test Accuracy: 78.16%
+Saved best RNN model to rnn_model.pt
+
+====================
+Training GRU Model
+====================
+Epoch [1/5] Loss: 0.5672 Acc: 68.80% Val Loss: 0.3563 Val Acc: 84.84%
+Epoch [2/5] Loss: 0.3221 Acc: 86.41% Val Loss: 0.3065 Val Acc: 87.68%
+Epoch [3/5] Loss: 0.2580 Acc: 89.69% Val Loss: 0.3283 Val Acc: 87.44%
+Epoch [4/5] Loss: 0.2120 Acc: 91.82% Val Loss: 0.3067 Val Acc: 88.28%
+Epoch [5/5] Loss: 0.1733 Acc: 93.47% Val Loss: 0.3279 Val Acc: 87.92%
+Finished GRU in 171.40s
+Best Val Accuracy: 88.28%
+Test Loss: 0.3121 Test Accuracy: 87.42%
+Saved best GRU model to gru_model.pt
+
+====================
+Training LSTM Model
+====================
+Epoch [1/5] Loss: 0.5794 Acc: 69.24% Val Loss: 0.4139 Val Acc: 82.84%
+Epoch [2/5] Loss: 0.3723 Acc: 84.16% Val Loss: 0.3118 Val Acc: 87.16%
+Epoch [3/5] Loss: 0.2898 Acc: 88.41% Val Loss: 0.3044 Val Acc: 87.12%
+Epoch [4/5] Loss: 0.2384 Acc: 90.93% Val Loss: 0.2934 Val Acc: 88.36%
+Epoch [5/5] Loss: 0.2051 Acc: 92.36% Val Loss: 0.2791 Val Acc: 88.40%
+Finished LSTM in 183.99s
+Best Val Accuracy: 88.40%
+Test Loss: 0.3160 Test Accuracy: 86.64%
+Saved best LSTM model to lstm_model.pt
+Comparison plot saved to comparison_results.png
+
+============================================================
+FINAL RESULTS SUMMARY
+============================================================
+
+RNN Model:
+  Best Validation Accuracy: 78.88%
+  Test Accuracy: 78.16%
+  Test Loss: 0.4992
+  Training Time: 148.90s
+  Final Training Loss: 0.4786
+  Late Negation Examples: 1000
+  Late Negation Accuracy: 80.90%
+  Sequence Length Sensitivity: {50: 0.682, 100: 0.749, 200: 0.761, 300: 0.778, 500: 0.783}
+
+GRU Model:
+  Best Validation Accuracy: 88.28%
+  Test Accuracy: 87.42%
+  Test Loss: 0.3121
+  Training Time: 171.40s
+  Final Training Loss: 0.1733
+  Late Negation Examples: 1000
+  Late Negation Accuracy: 93.60%
+  Sequence Length Sensitivity: {50: 0.78, 100: 0.835, 200: 0.873, 300: 0.888, 500: 0.892}
+
+LSTM Model:
+  Best Validation Accuracy: 88.40%
+  Test Accuracy: 86.64%
+  Test Loss: 0.3160
+  Training Time: 183.99s
+  Final Training Loss: 0.2051
+  Late Negation Examples: 1000
+  Late Negation Accuracy: 91.30%
+  Sequence Length Sensitivity: {50: 0.787, 100: 0.821, 200: 0.856, 300: 0.874, 500: 0.875}
+
+Comparison results saved to: comparison_results.png
